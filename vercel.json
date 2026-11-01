@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/coffee-boom",
+      "destination": "/boom.html"
+    },
+    {
+      "source": "/coffee-boom/",
+      "destination": "/boom.html"
+    }
+  ]
+}
