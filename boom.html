@@ -15,8 +15,8 @@
   <style>
     :root { --ink:#291b13; --espresso:#241508; --cream:#f7f3eb; --paper:#fffcf6; --copper:#a9572b; --gold:#dfb47a; --muted:#73685e; --line:#e5ddd1; --serif:"Cormorant Garamond",Georgia,serif; --sans:"Manrope",Arial,sans-serif; }
     * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; scroll-padding-top:100px; }
-    body { margin:0; min-width:320px; color:var(--ink); background:var(--cream); font:14px/1.6 var(--sans); -webkit-tap-highlight-color:transparent; }
+    html { background:#ebe6dc; scroll-behavior:smooth; scroll-padding-top:100px; }
+    body { margin:0 auto; max-width:480px; min-width:0; min-height:100svh; box-shadow:0 0 50px #24150808; color:var(--ink); background:var(--cream); font:14px/1.6 var(--sans); -webkit-tap-highlight-color:transparent; }
     button,a { touch-action:manipulation; }
     button { font:inherit; cursor:pointer; }
     a { color:inherit; text-decoration:none; }
@@ -50,7 +50,7 @@
     .hero-cta { display:inline-flex; align-items:center; justify-content:space-between; gap:30px; min-height:49px; margin-top:28px; padding:0 21px; border:1px solid #b78350; border-radius:4px; background:var(--gold); color:var(--espresso); font-size:11px; font-weight:800; transition:background .2s,transform .2s; }
     .hero-cta:hover { background:#f0cca0; transform:translateY(-3px); }
     .hero-cta svg { width:17px; height:17px; }
-    .hero-visual { position:relative; min-height:100%; }
+    .hero-visual { overflow:hidden; position:relative; min-height:100%; }
     .hero-photo { position:absolute; width:100%; height:100%; object-fit:cover; object-position:45% center; animation:photo-arrive 1.8s ease-out both; }
     .hero-visual::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,var(--espresso),transparent 25%),linear-gradient(0deg,#1c0e1070,transparent 65%); }
     .photo-caption { position:absolute; z-index:1; right:29px; bottom:28px; display:flex; align-items:center; gap:10px; color:#fff7e8; font:italic 22px var(--serif); }
@@ -155,9 +155,9 @@
     @keyframes robot-blink { 0%,43%,47%,100% { transform:scaleY(1); } 45% { transform:scaleY(.1); } }
     @keyframes robot-wave { 0%,65%,100% { transform:rotate(0); } 72%,86% { transform:rotate(-25deg); } 79%,93% { transform:rotate(3deg); } }
     @keyframes robot-talk { to { transform:scaleY(1.8); } }
-    @media (min-width:1400px) { .container { width:1184px; } .robot-dock { right:calc((100vw - 1184px)/2); } .hero { min-height:500px; } }
-    @media (max-width:950px) { .review-platform { gap:15px; padding:23px; grid-template-columns:52px 1fr 34px; } .platform-icon { width:52px; height:52px; } .platform-icon img { width:36px; height:36px; } .platform-icon.gis img { width:51px; height:51px; } .arrow-circle { width:34px; height:34px; } .review-platform h3 { font-size:19px; } .app-banner { padding:30px; } .store-buttons { flex-direction:column; gap:0; } .hero-copy { padding-left:34px; } }
-    @media (max-width:700px) {
+    
+    
+    
       .container { width:calc(100% - 36px); }
       .site-header { min-height:98px; padding-right:66px; gap:10px; }
       .brand { gap:10px; } .brand-logo { width:60px; height:60px; }
@@ -191,8 +191,8 @@
       .app-banner h2 { max-width:330px; font-size:35px; } .app-banner .eyebrow { font-size:8px; }
       .store-buttons { flex-direction:row; gap:2px; } .store-button img { width:132px; height:42px; } .store-button.play img { width:151px; height:58px; }
       footer { min-height:111px; font-size:8px; } .footer-brand { gap:8px; } .footer-brand img { width:37px; height:37px; }
-    }
-    @media (max-width:460px) {
+    
+    
       .brand-name,.brand-location { display:none; }
       .brand-logo { width:63px; height:63px; }
       .site-header { min-height:99px; }
@@ -216,8 +216,9 @@
       .section .eyebrow { font-size:8px; letter-spacing:1.5px; }
       h2 { font-size:35px; } .review-platform { padding:19px; gap:15px; }
       .app-banner { padding:25px 21px; } .store-button img { width:122px; } .store-button.play img { width:140px; }
-    }
-    @media (max-width:350px) { .container { width:calc(100% - 28px); } .robot-dock { right:14px; } h1 { font-size:58px; } h2 { font-size:32px; } .quick-links { gap:11px; } .quick-links a { font-size:8px; } .review-platform { gap:12px; padding:17px; } .review-platform h3 { font-size:20px; } .social-link { padding:14px 10px; } .social-link small { font-size:6.5px; } .store-buttons { gap:0; } .store-button img { width:114px; } .store-button.play img { width:128px; } }
+    
+    .robot-dock { right:max(18px,calc((100% - 480px)/2 + 18px)); }
+    @media (max-width:350px) { .container { width:calc(100% - 28px); } .robot-dock { right:14px; } h1 { font-size:58px; } h2 { font-size:32px; } .quick-links { gap:11px; } .quick-links a { font-size:8px; } .review-platform { gap:12px; padding:17px; } .review-platform h3 { font-size:20px; } .social-link { padding:14px 10px; } .social-link small { font-size:6.5px; } .store-buttons { gap:0; } .store-button img { width:104px; } .store-button.play img { width:120px; } }
     @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important; transition:none!important; } .motion-ready .reveal { opacity:1; transform:none; } }
   </style>
 </head>
@@ -236,7 +237,6 @@
       <span><span class="brand-name">Coffee BOOM</span><span class="brand-location" data-i18n="brandLocation">Astana · coffee & good company</span></span>
     </a>
     <nav class="language-switch" aria-label="Language" data-i18n-aria="language">
-      <button type="button" data-language="kk" lang="kk" aria-label="Қазақша" aria-pressed="false">KZ</button>
       <button type="button" data-language="ru" lang="ru" aria-label="Русский" aria-pressed="false">RU</button>
       <button type="button" data-language="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
     </nav>
@@ -328,16 +328,13 @@
       },
       ru: {
         skip:'Перейти к отзывам', language:'Язык', officialWebsite:'Официальный сайт Coffee BOOM', brandLocation:'Астана · кофе и хорошая компания', location:'Ваш кофейный уголок в Астане', headline:'Немного кофе.', headlineAccent:'Немного счастья.', heroDescription:'Первый глоток. Знакомые лица. Моменты, которые делают день лучше. Спасибо, что проводите их с нами.', heroCta:'Как прошёл ваш визит?', heroAlt:'Свежий кофе наливают в чашку', madeWithCare:'Момент, созданный с заботой.', explore:'Откройте Coffee BOOM', findUs:'Как нас найти', website:'Наш сайт', stayConnected:'Мы в соцсетях', reviewEyebrow:'Хороший кофе. Честный отзыв.', reviewTitle:'Каким был ваш Coffee BOOM?', reviewDescription:'Расскажите о вашем визите. Ваши отзывы помогают нам делать каждую чашку и каждую встречу ещё лучше.', googleDescription:'Поделитесь впечатлениями в Google', gisDescription:'Поделитесь впечатлениями в 2ГИС', leaveReview:'Оставить отзыв', reviewNote:'Каждое мнение важно. Спасибо, что делитесь своим.', socialEyebrow:'Больше, чем перерыв на кофе', socialTitle:'Становимся ближе каждый день.', socialDescription:'Кофейные моменты, новые любимые вкусы и немного закулисья. Встречаемся в ваших любимых соцсетях.', appEyebrow:'Возьмите немного BOOM с собой', appTitle:'Любимый кофе — в одном касании.', appStore:'Coffee BOOM в App Store', googlePlay:'Coffee BOOM в Google Play', footer:'Для тёплых моментов в Астане.', robotLabel:'Послушать приглашение оставить отзыв', robotKicker:'Ваш маленький кофейный помощник', robotHello:'Привет, любитель кофе!', robotMessage:'Пожалуйста, оставьте отзыв в Google или 2ГИС. Нам будет приятно узнать о вашем визите!', close:'Закрыть сообщение', speaking:'Говорю… нажмите на робота, чтобы остановить', voiceReady:'Нажмите на робота, чтобы послушать', voiceUnavailable:'Приглашение можно прочитать здесь', muted:'Звук выключен', mute:'Выключить звук', unmute:'Включить звук', speech:'Здравствуйте! Добро пожаловать в Кофе Бум Астана. Пожалуйста, оставьте отзыв в Гугл или два ГИС. Расскажите, как прошёл ваш визит. Спасибо!'
-      },
-      kk: {
-        skip:'Пікірлерге өту', language:'Тіл', officialWebsite:'Coffee BOOM ресми сайты', brandLocation:'Астана · кофе және жақсы орта', location:'Астанадағы сүйікті кофе орныңыз', headline:'Бір кесе кофе.', headlineAccent:'Бір сәт бақыт.', heroDescription:'Алғашқы жұтым. Таныс жүздер. Күніңізді көркейтетін сәттер. Оларды бізбен бөліскеніңізге рақмет.', heroCta:'Сапарыңыз қалай өтті?', heroAlt:'Кесеге жаңа дайындалған кофе құйылып жатыр', madeWithCare:'Қамқорлықпен жасалған сәт.', explore:'Coffee BOOM әлемі', findUs:'Бізді табыңыз', website:'Біздің сайт', stayConnected:'Байланыста болайық', reviewEyebrow:'Жақсы кофе. Шынайы пікір.', reviewTitle:'Coffee BOOM сізге ұнады ма?', reviewDescription:'Сапарыңыз туралы айтып беріңіз. Пікіріңіз әр кесені және әр кездесуді одан да жақсы етуге көмектеседі.', googleDescription:'Google-де әсеріңізбен бөлісіңіз', gisDescription:'2GIS-те әсеріңізбен бөлісіңіз', leaveReview:'Пікір қалдыру', reviewNote:'Әр пікір маңызды. Ойыңызбен бөліскеніңізге рақмет.', socialEyebrow:'Жай ғана кофе үзілісі емес', socialTitle:'Күн сайын жақынырақ.', socialDescription:'Кофелі сәттер, жаңа дәмдер және сахна сыртындағы өмір. Сүйікті әлеуметтік желіңізде кездескенше.', appEyebrow:'BOOM әрдайым жаныңызда', appTitle:'Сүйікті кофеңіз бір түртім жерде.', appStore:'Coffee BOOM App Store дүкенінде', googlePlay:'Coffee BOOM Google Play дүкенінде', footer:'Астанадағы жылы сәттер үшін.', robotLabel:'Пікір қалдыруға шақыруды тыңдау', robotKicker:'Сіздің кішкентай кофе көмекшіңіз', robotHello:'Сәлем, кофе сүйер дос!', robotMessage:'Google немесе 2GIS-те пікір қалдырыңызшы. Сапарыңыз туралы білгіміз келеді!', close:'Хабарламаны жабу', speaking:'Сөйлеп тұрмын… тоқтату үшін роботты басыңыз', voiceReady:'Тыңдау үшін роботты басыңыз', voiceUnavailable:'Пікірге шақыруды осы жерден оқи аласыз', muted:'Дыбыс өшірулі', mute:'Дыбысты өшіру', unmute:'Дыбысты қосу', speech:'Сәлеметсіз бе! Астанадағы Кофе Бумға қош келдіңіз. Google немесе екі ГИС-те пікір қалдырыңызшы. Сапарыңыз туралы білгіміз келеді. Рақмет!'
       }
     };
     const robot = document.getElementById('voiceAssistant');
     const bubble = document.getElementById('robotBubble');
     const voiceStatus = document.getElementById('voiceStatus');
     const voiceToggle = document.getElementById('voiceToggle');
-    const locales = {en:'en-US',ru:'ru-RU',kk:'kk-KZ'};
+    const locales = {en:'en-US',ru:'ru-RU'};
     let currentLanguage = 'en';
     let muted = false;
     let speechStarted = false;
@@ -347,7 +344,6 @@
     let greetingReady = false;
     let activeUtterance = null;
     const synth = 'speechSynthesis' in window ? window.speechSynthesis : null;
-    try { muted = sessionStorage.getItem('coffee-boom-muted') === 'true'; } catch (_) { /* Storage is optional. */ }
     function updateVoiceUI() {
       voiceStatus.textContent = translations[currentLanguage][muted ? 'muted' : speechState];
       voiceToggle.setAttribute('aria-pressed',String(muted));
@@ -368,7 +364,7 @@
       speechState = 'voiceReady';
       updateVoiceUI();
     }
-    function applyLanguage(language,remember = false) {
+    function applyLanguage(language) {
       if (!translations[language]) return;
       stopSpeech();
       currentLanguage = language;
@@ -377,7 +373,6 @@
       document.querySelectorAll('[data-i18n-aria]').forEach(el => { el.setAttribute('aria-label',translations[language][el.dataset.i18nAria]); });
       document.querySelectorAll('[data-i18n-alt]').forEach(el => { el.alt = translations[language][el.dataset.i18nAlt]; });
       document.querySelectorAll('[data-language]').forEach(el => { el.setAttribute('aria-pressed',String(el.dataset.language === language)); });
-      if (remember) { try { localStorage.setItem('coffee-boom-language',language); } catch (_) {} }
       updateVoiceUI();
     }
     function localizedVoice() {
@@ -392,12 +387,11 @@
         speechState = 'voiceUnavailable'; updateVoiceUI(); return;
       }
       const voice = localizedVoice();
-      // Never substitute an unrelated-language voice for a missing locale.
-      if (!voice) { speechState = 'voiceUnavailable'; updateVoiceUI(); return; }
       const message = new SpeechSynthesisUtterance(translations[currentLanguage].speech);
       activeUtterance = message;
       message.lang = locales[currentLanguage];
-      message.voice = voice;
+      // The engine can resolve message.lang even before getVoices() is populated.
+      if (voice) message.voice = voice;
       message.rate = .94;
       message.pitch = 1.04;
       message.onstart = () => {
@@ -411,34 +405,36 @@
         activeUtterance = null; speechStarted = false; speechState = 'voiceReady'; updateVoiceUI();
       };
       message.onend = finished;
-      message.onerror = finished;
+      message.onerror = event => {
+        if (activeUtterance !== message) return;
+        finished();
+        if (['language-unavailable','voice-unavailable','synthesis-unavailable'].includes(event.error)) {
+          speechState = 'voiceUnavailable'; updateVoiceUI();
+        }
+      };
       // Browsers may require a user gesture. The translated bubble always appears.
       try { synth.speak(message); } catch (_) { finished(); }
       speechTimeout = setTimeout(() => { if (activeUtterance === message && !speechStarted) stopSpeech(); },2500);
     }
     function attemptAutomaticSpeech() {
       if (!greetingReady || automaticAttempted || muted || document.hidden) return;
-      if (!localizedVoice()) return;
       automaticAttempted = true;
       speakInvitation();
     }
-    let savedLanguage;
-    try { savedLanguage = localStorage.getItem('coffee-boom-language'); } catch (_) {}
-    const preferredLanguages = navigator.languages || [navigator.language || 'en'];
-    const detectedLanguage = preferredLanguages.map(code => code.toLowerCase().split(/[-_]/)[0]).find(code => translations[code]);
-    applyLanguage(translations[savedLanguage] ? savedLanguage : detectedLanguage || 'en');
+    // Each visit follows the browser's primary language, never an old saved choice.
+    const browserLanguage = (navigator.language || (navigator.languages || [])[0] || 'en').toLowerCase();
+    applyLanguage(browserLanguage.startsWith('ru') ? 'ru' : 'en');
     document.querySelectorAll('[data-language]').forEach(button => {
-      button.addEventListener('click',() => { automaticAttempted = true; applyLanguage(button.dataset.language,true); showBubble(true); speakInvitation(); });
+      button.addEventListener('click',() => { automaticAttempted = true; applyLanguage(button.dataset.language); showBubble(true); speakInvitation(); });
     });
     robot.addEventListener('click',() => {
       showBubble(true);
       if (speechStarted || activeUtterance) { stopSpeech(); return; }
-      if (muted) { muted = false; try { sessionStorage.setItem('coffee-boom-muted','false'); } catch (_) {} }
+      if (muted) muted = false;
       speakInvitation();
     });
     voiceToggle.addEventListener('click',() => {
       muted = !muted;
-      try { sessionStorage.setItem('coffee-boom-muted',String(muted)); } catch (_) {}
       if (muted) stopSpeech(); else speakInvitation();
       updateVoiceUI();
     });
@@ -449,7 +445,7 @@
     document.addEventListener('visibilitychange',() => { if (document.hidden) stopSpeech(); else attemptAutomaticSpeech(); });
     if (synth) synth.addEventListener('voiceschanged',attemptAutomaticSpeech);
     // DOM readiness: slow images and fonts cannot delay the invitation.
-    setTimeout(() => { greetingReady = true; showBubble(true); attemptAutomaticSpeech(); if (!synth || !localizedVoice()) { speechState = 'voiceUnavailable'; updateVoiceUI(); } },900);
+    setTimeout(() => { greetingReady = true; showBubble(true); attemptAutomaticSpeech(); },250);
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     if ('IntersectionObserver' in window && !reducedMotion.matches) {
       document.body.classList.add('motion-ready');
