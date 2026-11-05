@@ -3,303 +3,185 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#241508">
-  <meta name="description" content="Share your Coffee BOOM Astana experience on Google or 2GIS, follow us, and discover our app.">
-  <title>Coffee BOOM · A little coffee. A little joy.</title>
+  <meta name="theme-color" content="#f7f3eb">
+  <meta name="description" content="How was your visit to Coffee BOOM Astana? Leave a review on Google or 2GIS.">
+  <title>Coffee BOOM · Leave a review</title>
   <link rel="icon" type="image/avif" href="/assets/coffee-boom-logo.avif">
   <link rel="apple-touch-icon" href="/assets/coffee-boom-logo.avif">
-  <link rel="preload" as="image" href="/assets/coffee-hero.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { --ink:#291b13; --espresso:#241508; --cream:#f7f3eb; --paper:#fffcf6; --copper:#a9572b; --gold:#dfb47a; --muted:#73685e; --line:#e5ddd1; --serif:"Cormorant Garamond",Georgia,serif; --sans:"Manrope",Arial,sans-serif; }
+    :root { --ink:#291b13; --espresso:#241508; --cream:#f7f3eb; --paper:#fffcf7; --copper:#985029; --gold:#c8912b; --muted:#75695e; --line:#e6ddd0; --sans:"Manrope",Arial,sans-serif; --serif:"Cormorant Garamond",Georgia,serif; }
     * { box-sizing:border-box; }
-    html { background:#ebe6dc; scroll-behavior:smooth; scroll-padding-top:100px; }
-    body { margin:0 auto; max-width:480px; min-width:0; min-height:100svh; box-shadow:0 0 50px #24150808; color:var(--ink); background:var(--cream); font:14px/1.6 var(--sans); -webkit-tap-highlight-color:transparent; }
-    button,a { touch-action:manipulation; }
-    button { font:inherit; cursor:pointer; }
+    html { background:#ebe6dc; scroll-behavior:smooth; scroll-padding-top:22px; }
+    body { width:100%; max-width:480px; min-height:100svh; margin:0 auto; color:var(--ink); background:var(--cream); box-shadow:0 0 50px #24150808; font:14px/1.6 var(--sans); -webkit-tap-highlight-color:transparent; }
     a { color:inherit; text-decoration:none; }
-    img { display:block; max-width:100%; }
-    svg { display:block; }
-    button:focus-visible,a:focus-visible { outline:3px solid var(--copper); outline-offset:5px; }
-    h1,h2,h3,p { margin:0; }
-    ::selection { background:var(--gold); color:var(--espresso); }
-    .container { width:min(1120px,calc(100% - 64px)); margin-inline:auto; }
+    button { font:inherit; cursor:pointer; }
+    a,button { touch-action:manipulation; }
+    img,svg { display:block; max-width:100%; }
+    h1,h2,p { margin:0; }
+    a:focus-visible,button:focus-visible { outline:3px solid var(--copper); outline-offset:4px; }
+    ::selection { color:var(--espresso); background:#e6c58b; }
+    .container { width:calc(100% - 36px); margin-inline:auto; }
     .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-    .skip-link { position:fixed; z-index:100; top:8px; left:8px; padding:12px 20px; color:white; background:var(--espresso); transform:translateY(-150%); }
+    .skip-link { position:fixed; top:8px; left:8px; z-index:100; padding:12px 18px; color:white; background:var(--espresso); transform:translateY(-150%); }
     .skip-link:focus { transform:translateY(0); }
-    .site-header { min-height:114px; display:flex; align-items:center; justify-content:space-between; gap:24px; padding-right:88px; }
-    .brand { display:flex; align-items:center; gap:17px; }
-    .brand-logo { width:76px; height:76px; border-radius:3px; }
-    .brand-name { display:block; font-size:19px; font-weight:800; letter-spacing:-.6px; }
-    .brand-location { display:block; margin-top:1px; color:var(--muted); font-size:9px; font-weight:700; letter-spacing:2.1px; text-transform:uppercase; }
-    .language-switch { display:flex; gap:3px; padding:4px; border:1px solid var(--line); border-radius:30px; }
-    .language-switch button { width:42px; height:34px; padding:0; border:0; border-radius:24px; color:var(--muted); background:transparent; font-size:11px; font-weight:800; transition:background .2s,color .2s; }
-    .language-switch button:hover { color:var(--ink); background:#ece5da; }
+    /* A compact brand header; the first screen is reserved for reviews. */
+    .site-header { display:grid; grid-template-columns:minmax(0,1fr) auto 42px; align-items:center; gap:10px; min-height:78px; border-bottom:1px solid var(--line); }
+    .brand { display:flex; align-items:center; gap:10px; min-width:0; }
+    .brand-logo { flex-shrink:0; width:44px; height:44px; border-radius:4px; }
+    .brand-name { display:block; font-size:14px; font-weight:800; letter-spacing:-.5px; white-space:nowrap; }
+    .brand-trail { display:flex; align-items:center; gap:6px; color:var(--muted); font-size:9px; }
+    .trail-separator { color:#bbaa94; }
+    .language-switch { display:flex; padding:3px; border:1px solid var(--line); border-radius:24px; }
+    .language-switch button { width:29px; height:29px; padding:0; border:0; border-radius:50%; color:var(--muted); background:transparent; font-size:10px; font-weight:800; transition:background .2s,color .2s; }
     .language-switch button[aria-pressed="true"] { color:var(--paper); background:var(--espresso); }
-    .hero { position:relative; min-height:474px; display:grid; grid-template-columns:1.05fr 1fr; overflow:hidden; color:var(--cream); background:var(--espresso); border-radius:4px 4px 42px 4px; isolation:isolate; }
-    .hero-copy { position:relative; z-index:2; align-self:center; padding:54px 0 58px 52px; }
-    .eyebrow { display:flex; align-items:center; gap:10px; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:2px; }
-    .eyebrow::before { content:""; width:25px; height:1px; background:currentColor; }
-    .hero .eyebrow { color:var(--gold); }
-    h1 { margin:23px 0 20px; font:500 clamp(55px,6.3vw,82px)/.98 var(--serif); letter-spacing:-2.4px; }
-    h1 span { display:block; }
-    h1 em { color:var(--gold); font-weight:500; }
-    .hero-description { max-width:330px; color:#d4c7b9; font-size:13px; line-height:1.9; }
-    .hero-cta { display:inline-flex; align-items:center; justify-content:space-between; gap:30px; min-height:49px; margin-top:28px; padding:0 21px; border:1px solid #b78350; border-radius:4px; background:var(--gold); color:var(--espresso); font-size:11px; font-weight:800; transition:background .2s,transform .2s; }
-    .hero-cta:hover { background:#f0cca0; transform:translateY(-3px); }
-    .hero-cta svg { width:17px; height:17px; }
-    .hero-visual { overflow:hidden; position:relative; min-height:100%; }
-    .hero-photo { position:absolute; width:100%; height:100%; object-fit:cover; object-position:45% center; animation:photo-arrive 1.8s ease-out both; }
-    .hero-visual::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,var(--espresso),transparent 25%),linear-gradient(0deg,#1c0e1070,transparent 65%); }
-    .photo-caption { position:absolute; z-index:1; right:29px; bottom:28px; display:flex; align-items:center; gap:10px; color:#fff7e8; font:italic 22px var(--serif); }
-    .photo-caption::before { content:""; width:27px; height:1px; background:var(--gold); }
-    .hero-stamp { position:absolute; z-index:3; right:27px; top:25px; display:grid; place-items:center; width:80px; height:80px; padding:12px; border:1px solid #f4dfba75; border-radius:50%; color:#fff4da; font-size:9px; line-height:1.7; letter-spacing:1.5px; text-align:center; transform:rotate(12deg); }
-    .hero-stamp svg { width:24px; height:24px; margin-bottom:4px; }
-    .steam { position:absolute; z-index:1; width:70px; height:130px; top:11%; left:44%; color:#fff8e6; opacity:.27; pointer-events:none; }
-    .steam path { animation:steam-rise 4s ease-in-out infinite; }
-    .steam path:nth-child(2) { animation-delay:-1.5s; }
-    .steam path:nth-child(3) { animation-delay:-2.5s; }
-    .quick-links { display:flex; align-items:center; justify-content:center; gap:35px; min-height:77px; border-bottom:1px solid var(--line); }
-    .quick-links a { display:inline-flex; align-items:center; gap:9px; min-height:44px; color:var(--muted); font-size:11px; font-weight:700; transition:color .2s; }
-    .quick-links a:hover { color:var(--copper); }
-    .quick-links svg { width:17px; height:17px; color:var(--copper); }
-    .section { padding-top:56px; }
-    .section-intro { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:26px; }
-    .section .eyebrow { color:var(--copper); margin-bottom:10px; }
-    h2 { font:500 45px/1.07 var(--serif); letter-spacing:-1px; }
-    .section-intro p:not(.eyebrow) { max-width:300px; color:var(--muted); font-size:12px; line-height:1.85; }
-    .review-platforms { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-    .review-platform { position:relative; display:grid; grid-template-columns:64px 1fr 42px; align-items:center; gap:22px; min-height:174px; padding:29px; overflow:hidden; border:1px solid var(--line); border-radius:12px; background:var(--paper); box-shadow:0 6px 20px #291b1303; transition:transform .3s,box-shadow .3s,border-color .3s; }
-    .review-platform::before { content:""; position:absolute; height:3px; left:0; right:0; bottom:0; background:var(--copper); transform:scaleX(0); transform-origin:left; transition:transform .3s; }
-    .review-platform:hover { transform:translateY(-5px); border-color:#c8b5a0; box-shadow:0 14px 35px #291b130d; }
-    .review-platform:hover::before { transform:scaleX(1); }
-    .platform-icon { display:grid; place-items:center; width:64px; height:64px; background:white; border:1px solid #eee9e0; border-radius:18px; }
-    .platform-icon img { width:43px; height:43px; object-fit:contain; }
-    .platform-icon.gis { overflow:hidden; background:transparent; border:0; }
-    .platform-icon.gis img { width:62px; height:62px; border-radius:16px; }
-    .review-platform h3 { margin-bottom:3px; font-size:21px; letter-spacing:-.7px; }
-    .platform-description { color:var(--muted); font-size:11px; }
-    .review-action { display:block; margin-top:13px; color:var(--copper); font-size:12px; font-weight:800; }
-    .arrow-circle { display:grid; place-items:center; width:42px; height:42px; border:1px solid var(--line); border-radius:50%; transition:background .3s,color .3s,transform .3s; }
-    .arrow-circle svg { width:18px; height:18px; }
-    .review-platform:hover .arrow-circle { color:var(--cream); background:var(--espresso); transform:rotate(45deg); }
-    .review-note { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:18px; color:var(--muted); font-size:10px; text-align:center; }
+    .review-section { padding:27px 0 25px; }
+    .review-intro { margin-bottom:23px; text-align:center; }
+    .eyebrow { color:var(--copper); font-size:9px; font-weight:800; letter-spacing:1.8px; text-transform:uppercase; }
+    h1 { margin-top:8px; font:600 44px/1.06 var(--serif); letter-spacing:-1.1px; }
+    .gold-stars { display:flex; justify-content:center; gap:7px; margin:14px 0 12px; color:var(--gold); }
+    .gold-stars svg { width:22px; height:22px; filter:drop-shadow(0 2px 2px #ab75221c); }
+    .review-description { max-width:335px; margin-inline:auto; color:var(--muted); font-size:12px; line-height:1.8; }
+    .review-platforms { display:grid; grid-template-columns:minmax(0,1fr); gap:14px; }
+    .review-platform { position:relative; display:grid; grid-template-columns:57px minmax(0,1fr) 36px; align-items:center; gap:17px; min-height:137px; padding:22px; overflow:hidden; border:1px solid #d9c8ae; border-radius:15px; background:linear-gradient(125deg,#fffefa,#fcf6eb); box-shadow:0 5px 20px #5d35120a; transition:transform .25s,box-shadow .25s,border-color .25s; animation:arrive .55s both; }
+    .review-platform:nth-child(2) { animation-delay:.08s; }
+    .review-platform::before { content:""; position:absolute; inset:0 auto 0 0; width:4px; background:#c99b54; }
+    .review-platform:hover { transform:translateY(-3px); border-color:#b99160; box-shadow:0 10px 25px #5d351214; }
+    .review-platform:active { transform:scale(.985); }
+    .platform-icon { display:grid; place-items:center; width:57px; height:57px; border:1px solid #eee6d8; border-radius:15px; background:#fff; }
+    .platform-icon img { width:39px; height:39px; object-fit:contain; }
+    .platform-icon.gis { border:0; background:transparent; }
+    .platform-icon.gis img { width:56px; height:56px; border-radius:14px; }
+    .review-platform h2 { font-size:25px; font-weight:800; line-height:1.2; letter-spacing:-.8px; }
+    .review-action { display:block; margin-top:8px; color:var(--copper); font-size:12px; font-weight:800; line-height:1.65; }
+    .arrow-circle { display:grid; place-items:center; width:36px; height:36px; border-radius:50%; color:var(--paper); background:var(--espresso); transition:transform .25s,background .25s; }
+    .arrow-circle svg { width:17px; height:17px; }
+    .review-platform:hover .arrow-circle { transform:rotate(45deg); background:var(--copper); }
+    .review-note { display:flex; align-items:center; justify-content:center; gap:7px; margin-top:19px; color:var(--muted); font-size:10px; text-align:center; }
     .review-note svg { width:14px; height:14px; color:var(--copper); flex-shrink:0; }
-    .coffee-divider { display:flex; align-items:center; gap:18px; margin:46px 0 0; color:#b09b86; }
-    .coffee-divider::before,.coffee-divider::after { content:""; flex:1; height:1px; background:var(--line); }
-    .coffee-divider svg { width:21px; height:28px; transform:rotate(24deg); }
-    .social-section { padding-top:39px; }
-    .social-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-    .social-link { display:flex; align-items:center; gap:14px; min-height:102px; padding:23px; border:1px solid var(--line); border-radius:10px; transition:background .25s,transform .25s; }
-    .social-link:hover { background:var(--paper); transform:translateY(-3px); }
-    .social-link img { width:37px; height:37px; object-fit:contain; border-radius:9px; flex-shrink:0; }
-    .social-link strong { display:block; font-size:13px; }
-    .social-link small { display:block; margin-top:2px; font-size:9px; color:var(--muted); }
-    .social-link>svg { width:15px; height:15px; margin-left:auto; color:var(--muted); flex-shrink:0; }
-    .app-banner { position:relative; display:flex; align-items:center; justify-content:space-between; gap:30px; margin-top:45px; padding:37px 42px; overflow:hidden; color:var(--cream); background:var(--espresso); border-radius:12px; }
-    .app-banner::after { content:"CB"; position:absolute; z-index:0; right:28%; top:-85px; color:#ffffff05; font:300 260px var(--serif); pointer-events:none; }
-    .app-banner>div { position:relative; z-index:1; }
-    .app-banner .eyebrow { color:var(--gold); margin-bottom:12px; }
-    .app-banner h2 { max-width:380px; font-size:37px; }
-    .store-buttons { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+    .quick-links { display:flex; align-items:center; justify-content:center; gap:30px; min-height:58px; border-block:1px solid var(--line); }
+    .quick-links a { display:flex; align-items:center; gap:8px; min-height:44px; color:var(--muted); font-size:10px; font-weight:700; }
+    .quick-links svg { width:15px; height:15px; color:var(--copper); }
+    .quick-links a:hover { color:var(--copper); }
+    .social-section { padding:30px 0 28px; }
+    .section-title { font:600 27px/1.15 var(--serif); letter-spacing:-.4px; }
+    .social-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-top:16px; }
+    .social-link { display:flex; align-items:center; justify-content:center; flex-direction:column; gap:9px; min-height:86px; padding:12px 6px; border:1px solid var(--line); border-radius:10px; font-size:10px; font-weight:700; transition:transform .2s,background .2s; }
+    .social-link img { width:28px; height:28px; object-fit:contain; border-radius:7px; }
+    .social-link:hover { transform:translateY(-2px); background:var(--paper); }
+    .app-section { padding:23px 0 26px; border-top:1px solid var(--line); }
+    .app-section h2 { color:var(--muted); font-size:12px; font-weight:700; }
+    .store-buttons { display:flex; align-items:center; gap:7px; margin-top:11px; }
+    .store-button img { width:125px; height:42px; object-fit:contain; }
+    .store-button.play img { width:144px; height:55px; }
     .store-button { transition:transform .2s; }
-    .store-button:hover { transform:translateY(-3px); }
-    .store-button img { width:145px; height:46px; object-fit:contain; }
-    .store-button.play img { width:166px; height:64px; }
-    footer { display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:120px; color:var(--muted); font-size:10px; }
-    .footer-brand { display:flex; align-items:center; gap:12px; }
-    .footer-brand img { width:43px; height:43px; border-radius:3px; }
-    .footer-brand strong { display:block; color:var(--ink); font-size:11px; }
-    .footer-link { display:inline-flex; align-items:center; gap:7px; min-height:44px; }
-    .footer-link svg { width:14px; height:14px; }
-    /* The host remains at the upper right; the greeting never traps focus. */
-    .robot-dock { position:fixed; z-index:50; top:max(23px,env(safe-area-inset-top)); right:max(23px,calc((100vw - 1120px)/2)); }
-    .robot-button { display:grid; place-items:center; position:relative; width:65px; height:65px; padding:0; color:var(--espresso); background:var(--paper); border:1px solid #d9cdbd; border-radius:50%; box-shadow:0 5px 20px #291b1315; transition:transform .2s; }
-    .robot-button:hover { transform:translateY(-3px) rotate(-4deg); }
-    .robot-art { width:49px; height:49px; overflow:visible; animation:robot-float 4s ease-in-out infinite; }
+    .store-button:hover { transform:translateY(-2px); }
+    footer { display:flex; align-items:center; justify-content:space-between; gap:15px; min-height:65px; border-top:1px solid var(--line); color:var(--muted); font-size:9px; }
+    .footer-link { display:inline-flex; align-items:center; gap:5px; min-height:44px; }
+    .footer-link svg { width:12px; height:12px; }
+    /* Voice stays in this small control. No speech bubble or overlay is used. */
+    .robot-dock { position:fixed; z-index:50; top:max(17px,env(safe-area-inset-top)); right:max(18px,calc((100% - 480px)/2 + 18px)); }
+    .robot-button { display:grid; place-items:center; position:relative; width:42px; height:42px; padding:0; border:1px solid #d7c8b5; border-radius:50%; color:var(--espresso); background:var(--paper); box-shadow:0 3px 12px #291b1310; transition:transform .2s,box-shadow .2s; }
+    .robot-button:hover { transform:translateY(-2px) rotate(-4deg); }
+    .robot-art { width:37px; height:37px; overflow:visible; animation:robot-float 4s ease-in-out infinite; }
     .robot-eyes { transform-origin:center 24px; animation:robot-blink 6s infinite; }
     .robot-arm { transform-origin:43px 31px; animation:robot-wave 3.5s ease-in-out infinite; }
-    .robot-button::after { content:""; position:absolute; right:1px; bottom:2px; width:12px; height:12px; border:3px solid var(--cream); border-radius:50%; background:#7c965d; }
-    .robot-button.speaking { box-shadow:0 0 0 7px #dfb47a45,0 5px 20px #291b1315; }
+    .robot-button::after { content:""; position:absolute; right:0; bottom:0; width:9px; height:9px; border:2px solid var(--cream); border-radius:50%; background:#a68b64; }
+    .robot-button.speaking { box-shadow:0 0 0 5px #dfb47a45,0 3px 12px #291b1310; }
+    .robot-button.speaking::after { background:#729153; }
     .robot-button.speaking .robot-mouth { animation:robot-talk .3s ease-in-out infinite alternate; transform-origin:27px 30px; }
-    .robot-bubble { position:absolute; top:81px; right:0; width:296px; padding:23px; border:1px solid #e5d9c8; border-radius:15px 4px 15px 15px; background:var(--paper); box-shadow:0 14px 45px #24150826; opacity:0; visibility:hidden; transform:translateY(-9px); transition:opacity .25s,transform .25s,visibility .25s; }
-    .robot-bubble.open { opacity:1; visibility:visible; transform:translateY(0); }
-    .robot-bubble::before { content:""; position:absolute; right:23px; top:-7px; width:12px; height:12px; border:solid #e5d9c8; border-width:1px 0 0 1px; background:var(--paper); transform:rotate(45deg); }
-    .bubble-kicker { color:var(--copper); font-size:9px; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; }
-    .bubble-title { display:block; padding-right:9px; margin:8px 0 7px; font:600 29px/1.05 var(--serif); }
-    .bubble-message { color:var(--muted); font-size:12px; line-height:1.8; }
-    .bubble-close { position:absolute; right:10px; top:10px; width:30px; height:30px; display:grid; place-items:center; border:0; border-radius:50%; color:var(--muted); background:transparent; }
-    .bubble-close:hover { background:#eee7dc; }
-    .bubble-close svg { width:14px; height:14px; }
-    .bubble-links { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:16px; }
-    .bubble-links a { display:flex; align-items:center; justify-content:center; gap:7px; min-height:42px; border:1px solid var(--line); border-radius:6px; font-size:10px; font-weight:800; }
-    .bubble-links a:hover { background:#f2e9dd; }
-    .bubble-links img { width:18px; height:18px; object-fit:contain; }
-    .voice-controls { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:13px; }
-    .voice-status { color:var(--muted); font-size:9px; }
-    .voice-toggle { display:flex; align-items:center; justify-content:center; width:34px; height:34px; padding:6px; color:var(--copper); background:#efe6d9; border:0; border-radius:50%; flex-shrink:0; }
-    .voice-toggle svg { width:17px; height:17px; }
-    .voice-toggle[aria-pressed="true"] .sound-wave { display:none; }
-    .motion-ready .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s,transform .7s; }
-    .motion-ready .reveal.visible { opacity:1; transform:translateY(0); }
-    .hero-copy>* { animation:copy-arrive .8s both; }
-    .hero-copy h1 { animation-delay:.08s; }
-    .hero-description { animation-delay:.16s; }
-    .hero-cta { animation-delay:.24s; }
-    @keyframes photo-arrive { from { transform:scale(1.07); opacity:.5; } to { transform:scale(1); opacity:1; } }
-    @keyframes copy-arrive { from { opacity:0; transform:translateY(13px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes steam-rise { 0%,100% { opacity:.1; transform:translateY(5px); } 50% { opacity:.6; transform:translateY(-9px); } }
-    @keyframes robot-float { 50% { transform:translateY(-3px); } }
+    @keyframes arrive { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes robot-float { 50% { transform:translateY(-2px); } }
     @keyframes robot-blink { 0%,43%,47%,100% { transform:scaleY(1); } 45% { transform:scaleY(.1); } }
     @keyframes robot-wave { 0%,65%,100% { transform:rotate(0); } 72%,86% { transform:rotate(-25deg); } 79%,93% { transform:rotate(3deg); } }
     @keyframes robot-talk { to { transform:scaleY(1.8); } }
-
-
-
-      .container { width:calc(100% - 36px); }
-      .site-header { min-height:98px; padding-right:66px; gap:10px; }
-      .brand { gap:10px; } .brand-logo { width:60px; height:60px; }
-      .brand-name { font-size:15px; } .brand-location { font-size:7px; letter-spacing:1px; }
-      .language-switch { gap:0; padding:3px; } .language-switch button { width:32px; height:31px; font-size:10px; }
-      .robot-dock { top:max(20px,env(safe-area-inset-top)); right:18px; }
-      .robot-button { width:54px; height:54px; } .robot-art { width:43px; height:43px; }
-      .robot-bubble { top:69px; width:min(296px,calc(100vw - 36px)); }
-      .hero { min-height:440px; grid-template-columns:1.1fr .8fr; border-radius:4px 4px 29px 4px; }
-      .hero-copy { padding:39px 0 41px 26px; }
-      h1 { font-size:65px; letter-spacing:-2px; }
-      .hero-description { font-size:11px; max-width:245px; }
-      .hero .eyebrow { font-size:8px; letter-spacing:1.4px; }
-      .hero-visual::after { background:linear-gradient(90deg,var(--espresso),#24150830 75%),linear-gradient(0deg,#24150880,transparent 65%); }
-      .hero-stamp { width:62px; height:62px; font-size:7px; right:15px; top:18px; padding:8px; }
-      .hero-stamp svg { width:20px; height:20px; }
-      .photo-caption { right:18px; bottom:21px; font-size:17px; }
-      .quick-links { gap:20px; min-height:70px; } .quick-links a { font-size:9px; gap:6px; }
-      .section { padding-top:39px; } .section-intro { display:block; margin-bottom:21px; }
-      h2 { font-size:37px; } .section-intro p:not(.eyebrow) { max-width:360px; margin-top:12px; font-size:11px; }
-      .review-platforms { grid-template-columns:1fr; gap:12px; }
-      .review-platform { grid-template-columns:58px 1fr 40px; gap:18px; min-height:130px; padding:22px; }
-      .platform-icon { width:58px; height:58px; } .platform-icon img { width:39px; height:39px; } .platform-icon.gis img { width:57px; height:57px; }
-      .review-platform h3 { font-size:22px; } .review-action { margin-top:6px; }
-      .arrow-circle { width:40px; height:40px; }
-      .review-note { font-size:9px; }
-      .coffee-divider { margin-top:33px; } .social-section { padding-top:29px; }
-      .social-grid { gap:9px; } .social-link { flex-direction:column; gap:10px; align-items:flex-start; padding:17px 13px; min-height:123px; }
-      .social-link img { width:31px; height:31px; } .social-link>svg { display:none; } .social-link strong { font-size:11px; } .social-link small { font-size:7px; }
-      .app-banner { margin-top:31px; padding:28px; flex-direction:column; align-items:flex-start; gap:15px; }
-      .app-banner h2 { max-width:330px; font-size:35px; } .app-banner .eyebrow { font-size:8px; }
-      .store-buttons { flex-direction:row; gap:2px; } .store-button img { width:132px; height:42px; } .store-button.play img { width:151px; height:58px; }
-      footer { min-height:111px; font-size:8px; } .footer-brand { gap:8px; } .footer-brand img { width:37px; height:37px; }
-
-
-      .brand-name,.brand-location { display:none; }
-      .brand-logo { width:63px; height:63px; }
-      .site-header { min-height:99px; }
-      .hero { min-height:410px; display:block; }
-      .hero-visual { position:absolute; inset:0 0 0 18%; z-index:-1; }
-      .hero-photo { object-position:54% center; opacity:.63; }
-      .hero-visual::after { background:linear-gradient(90deg,var(--espresso) 2%,#241508b8 40%,#24150810),linear-gradient(0deg,#24150890,transparent 65%); }
-      .hero-copy { padding:39px 25px; max-width:325px; }
-      h1 { margin-top:23px; font-size:64px; }
-      .hero-description { max-width:226px; color:#e5d9cc; }
-      .hero-stamp,.photo-caption { display:none; }
-      .robot-bubble { width:246px; padding:17px; }
-      .bubble-kicker,.bubble-title { display:none; }
-      .bubble-message { font-size:11px; padding-right:13px; }
-      .bubble-links { margin-top:12px; }
-      .voice-controls { margin-top:8px; }
-      .voice-status { font-size:8px; }
-      .hero-cta { min-height:46px; margin-top:23px; font-size:10px; padding:0 17px; gap:24px; }
-      .steam { left:69%; top:8%; width:50px; }
-      .quick-links { gap:15px; } .quick-links svg { width:15px; height:15px; }
-      .section .eyebrow { font-size:8px; letter-spacing:1.5px; }
-      h2 { font-size:35px; } .review-platform { padding:19px; gap:15px; }
-      .app-banner { padding:25px 21px; } .store-button img { width:122px; } .store-button.play img { width:140px; }
-
-    .robot-dock { right:max(18px,calc((100% - 480px)/2 + 18px)); }
-    @media (max-width:350px) { .container { width:calc(100% - 28px); } .robot-dock { right:14px; } h1 { font-size:58px; } h2 { font-size:32px; } .quick-links { gap:11px; } .quick-links a { font-size:8px; } .review-platform { gap:12px; padding:17px; } .review-platform h3 { font-size:20px; } .social-link { padding:14px 10px; } .social-link small { font-size:6.5px; } .store-buttons { gap:0; } .store-button img { width:104px; } .store-button.play img { width:120px; } }
-    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important; transition:none!important; } .motion-ready .reveal { opacity:1; transform:none; } }
+    @media (max-width:350px) {
+      .container { width:calc(100% - 28px); }
+      .site-header { gap:8px; }
+      .brand { gap:8px; } .brand-name { font-size:12px; } .brand-trail { font-size:8px; gap:4px; }
+      .brand-logo { width:40px; height:40px; }
+      .language-switch button { width:26px; height:28px; }
+      .robot-dock { right:14px; }
+      h1 { font-size:39px; }
+      .review-section { padding-top:23px; }
+      .review-description { font-size:11px; }
+      .review-platform { grid-template-columns:50px minmax(0,1fr) 32px; gap:13px; min-height:127px; padding:19px 17px; }
+      .platform-icon { width:50px; height:50px; } .platform-icon img { width:35px; height:35px; } .platform-icon.gis img { width:49px; height:49px; }
+      .review-platform h2 { font-size:23px; }
+      .review-action { font-size:11px; }
+      .arrow-circle { width:32px; height:32px; }
+      .store-buttons { gap:4px; } .store-button img { width:114px; } .store-button.play img { width:132px; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important; transition:none!important; } }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#reviews" data-i18n="skip">Skip to reviews</a>
   <svg class="sr-only" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
     <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-cup" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8ZM17 9h1a3 3 0 0 1 0 6h-1M3 23h16M8 5V2m5 3V1"/></g></symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24"><path d="m12 1.8 3.1 6.3 7 .9-5.1 5 1.2 7-6.2-3.3L5.8 21l1.2-7-5.1-5 7-.9L12 1.8Z" fill="currentColor"/></symbol>
     <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
     <symbol id="icon-heart" viewBox="0 0 24 24"><path d="m12 21-8-8a5 5 0 0 1 8-6 5 5 0 0 1 8 6l-8 8Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></g></symbol>
   </svg>
   <header class="site-header container" id="top">
-    <a class="brand" href="https://coffeeboom.kz" target="_blank" rel="noopener noreferrer" aria-label="Coffee BOOM website" data-i18n-aria="officialWebsite">
-      <img class="brand-logo" src="/assets/coffee-boom-logo.avif" alt="Coffee BOOM" width="76" height="76">
-      <span><span class="brand-name">Coffee BOOM</span><span class="brand-location" data-i18n="brandLocation">Astana · coffee & good company</span></span>
+    <a class="brand" href="https://coffeeboom.kz" target="_blank" rel="noopener noreferrer" aria-label="Coffee BOOM official website" data-i18n-aria="officialWebsite">
+      <img class="brand-logo" src="/assets/coffee-boom-logo.avif" alt="Coffee BOOM" width="44" height="44">
+      <span><span class="brand-name">Coffee BOOM</span><span class="brand-trail"><span data-i18n="astana">Astana</span><span class="trail-separator" aria-hidden="true">/</span><span data-i18n="reviews">Reviews</span></span></span>
     </a>
     <nav class="language-switch" aria-label="Language" data-i18n-aria="language">
       <button type="button" data-language="ru" lang="ru" aria-label="Русский" aria-pressed="false">RU</button>
       <button type="button" data-language="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
     </nav>
+    <span aria-hidden="true"></span>
   </header>
   <main class="container">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow" data-i18n="location">Your coffee corner in Astana</p>
-        <h1 id="hero-title"><span data-i18n="headline">A little coffee.</span><span><em data-i18n="headlineAccent">A little joy.</em></span></h1>
-        <p class="hero-description" data-i18n="heroDescription">The first sip. The familiar faces. The moments that make your day. Thank you for sharing them with us.</p>
-        <a class="hero-cta" href="#reviews"><span data-i18n="heroCta">How was your visit?</span><svg aria-hidden="true"><use href="#icon-arrow"/></svg></a>
-      </div>
-      <div class="hero-visual">
-        <img class="hero-photo" src="/assets/coffee-hero.jpg" alt="Fresh coffee being poured into a cup" data-i18n-alt="heroAlt" width="1600" height="1067" fetchpriority="high">
-        <svg class="steam" viewBox="0 0 70 130" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 105C-5 75 38 64 16 28"/><path d="M35 112C12 78 61 55 37 8"/><path d="M55 105C35 79 73 59 56 29"/></svg>
-        <p class="photo-caption" data-i18n="madeWithCare">A moment, made with care.</p>
-      </div>
-      <div class="hero-stamp" aria-hidden="true"><svg><use href="#icon-cup"/></svg><span>COFFEE<br>BOOM</span></div>
-    </section>
-    <nav class="quick-links" aria-label="Explore Coffee BOOM" data-i18n-aria="explore">
-      <a href="https://www.google.com/maps/search/?api=1&query=Coffee%20BOOM%20Astana&query_place_id=ChIJ8ZStTQCFRUIR97Iq4DYwmrI" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#icon-pin"/></svg><span data-i18n="findUs">Find us</span></a>
-      <a href="https://coffeeboom.kz" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#icon-cup"/></svg><span data-i18n="website">Our website</span></a>
-      <a href="#social"><svg aria-hidden="true"><use href="#icon-heart"/></svg><span data-i18n="stayConnected">Stay connected</span></a>
-    </nav>
-    <section class="section reveal" id="reviews" aria-labelledby="reviews-title">
-      <div class="section-intro">
-        <div><p class="eyebrow" data-i18n="reviewEyebrow">A good cup. An honest review.</p><h2 id="reviews-title" data-i18n="reviewTitle">How was your Coffee BOOM?</h2></div>
-        <p data-i18n="reviewDescription">Tell us about your visit. Your feedback helps us make the next cup, and the next visit, even better.</p>
+    <section class="review-section" id="reviews" aria-labelledby="reviews-title">
+      <div class="review-intro">
+        <p class="eyebrow" data-i18n="eyebrow">Thank you for visiting</p>
+        <h1 id="reviews-title" data-i18n="reviewTitle">Leave a review</h1>
+        <div class="gold-stars" aria-hidden="true"><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg></div>
+        <p class="review-description" data-i18n="reviewDescription">Choose Google or 2GIS and tell us about your Coffee BOOM experience.</p>
       </div>
       <div class="review-platforms">
         <a class="review-platform" href="https://search.google.com/local/writereview?placeid=ChIJ8ZStTQCFRUIR97Iq4DYwmrI" target="_blank" rel="noopener noreferrer" data-review="google">
-          <span class="platform-icon"><img src="/assets/google.png" alt="" width="43" height="43"></span>
-          <div><h3>Google Maps</h3><p class="platform-description" data-i18n="googleDescription">Share your experience on Google</p><span class="review-action" data-i18n="leaveReview">Leave a review</span></div>
+          <span class="platform-icon"><img src="/assets/google.png" alt="" width="39" height="39"></span>
+          <div><h2>Google</h2><span class="review-action" data-i18n="googleAction">Write a Google review</span></div>
           <span class="arrow-circle"><svg aria-hidden="true"><use href="#icon-arrow"/></svg></span>
         </a>
         <a class="review-platform" href="https://2gis.kz/astana/search/Coffee%20BOOM/firm/70000001072135261/tab/reviews/addreview?m=71.415126%2C51.091563%2F16" target="_blank" rel="noopener noreferrer" data-review="2gis">
-          <span class="platform-icon gis"><img src="/assets/2gis.png" alt="" width="62" height="62"></span>
-          <div><h3>2GIS</h3><p class="platform-description" data-i18n="gisDescription">Share your experience on 2GIS</p><span class="review-action" data-i18n="leaveReview">Leave a review</span></div>
+          <span class="platform-icon gis"><img src="/assets/2gis.png" alt="" width="56" height="56"></span>
+          <div><h2>2GIS</h2><span class="review-action" data-i18n="gisAction">Write a 2GIS review</span></div>
           <span class="arrow-circle"><svg aria-hidden="true"><use href="#icon-arrow"/></svg></span>
         </a>
       </div>
       <p class="review-note"><svg aria-hidden="true"><use href="#icon-heart"/></svg><span data-i18n="reviewNote">Every experience matters. Thank you for sharing yours.</span></p>
     </section>
-    <div class="coffee-divider" aria-hidden="true"><svg viewBox="0 0 25 34" fill="none" stroke="currentColor" stroke-width="1.2"><ellipse cx="12.5" cy="17" rx="10" ry="15"/><path d="M16 3C0 13 25 19 9 31"/></svg></div>
-    <section class="section social-section reveal" id="social" aria-labelledby="social-title">
-      <div class="section-intro"><div><p class="eyebrow" data-i18n="socialEyebrow">More than a coffee break</p><h2 id="social-title" data-i18n="socialTitle">A little closer, every day.</h2></div><p data-i18n="socialDescription">Coffee moments, new favorites, and a little behind the scenes. Find us where you like to scroll.</p></div>
+    <nav class="quick-links" aria-label="Explore Coffee BOOM" data-i18n-aria="explore">
+      <a href="https://www.google.com/maps/search/?api=1&query=Coffee%20BOOM%20Astana&query_place_id=ChIJ8ZStTQCFRUIR97Iq4DYwmrI" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#icon-pin"/></svg><span data-i18n="findUs">Find us</span></a>
+      <a href="https://coffeeboom.kz" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#icon-globe"/></svg><span data-i18n="website">Our website</span></a>
+    </nav>
+    <section class="social-section" aria-labelledby="social-title">
+      <h2 class="section-title" id="social-title" data-i18n="socialTitle">Stay in touch</h2>
       <div class="social-grid">
-        <a class="social-link" href="https://www.instagram.com/coffeeboom2010/?hl=en" target="_blank" rel="noopener noreferrer"><img src="/assets/instagram.webp" alt="" width="37" height="37" loading="lazy"><div><strong>Instagram</strong><small>@coffeeboom2010</small></div><svg aria-hidden="true"><use href="#icon-arrow"/></svg></a>
-        <a class="social-link" href="https://www.tiktok.com/@coffeeboom2010" target="_blank" rel="noopener noreferrer"><img src="/assets/tiktok.ico" alt="" width="37" height="37" loading="lazy"><div><strong>TikTok</strong><small>@coffeeboom2010</small></div><svg aria-hidden="true"><use href="#icon-arrow"/></svg></a>
-        <a class="social-link" href="https://www.threads.com/@coffeeboom2010" target="_blank" rel="noopener noreferrer"><img src="/assets/threads.webp" alt="" width="37" height="37" loading="lazy"><div><strong>Threads</strong><small>@coffeeboom2010</small></div><svg aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+        <a class="social-link" href="https://www.instagram.com/coffeeboom2010/?hl=en" target="_blank" rel="noopener noreferrer"><img src="/assets/instagram.webp" alt="" width="28" height="28" loading="lazy"><span>Instagram</span></a>
+        <a class="social-link" href="https://www.tiktok.com/@coffeeboom2010" target="_blank" rel="noopener noreferrer"><img src="/assets/tiktok.ico" alt="" width="28" height="28" loading="lazy"><span>TikTok</span></a>
+        <a class="social-link" href="https://www.threads.com/@coffeeboom2010" target="_blank" rel="noopener noreferrer"><img src="/assets/threads.webp" alt="" width="28" height="28" loading="lazy"><span>Threads</span></a>
       </div>
     </section>
-    <section class="app-banner reveal" aria-labelledby="app-title">
-      <div><p class="eyebrow" data-i18n="appEyebrow">Take a little BOOM with you</p><h2 id="app-title" data-i18n="appTitle">Your next coffee is a tap away.</h2></div>
+    <section class="app-section" aria-labelledby="app-title">
+      <h2 id="app-title" data-i18n="appTitle">Get the Coffee BOOM app</h2>
       <div class="store-buttons">
-        <a class="store-button" href="https://apps.apple.com/kz/app/coffee-boom/id6747636825" target="_blank" rel="noopener noreferrer" aria-label="Coffee BOOM on the App Store" data-i18n-aria="appStore"><img src="/assets/app-store.svg" alt="Download on the App Store" width="145" height="46" loading="lazy"></a>
-        <a class="store-button play" href="https://play.google.com/store/apps/details?id=com.food.coffeeboom&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Coffee BOOM on Google Play" data-i18n-aria="googlePlay"><img src="/assets/google-play.png" alt="Get it on Google Play" width="166" height="64" loading="lazy"></a>
+        <a class="store-button" href="https://apps.apple.com/kz/app/coffee-boom/id6747636825" target="_blank" rel="noopener noreferrer" aria-label="Coffee BOOM on the App Store" data-i18n-aria="appStore"><img src="/assets/app-store.svg" alt="Download on the App Store" width="125" height="42" loading="lazy"></a>
+        <a class="store-button play" href="https://play.google.com/store/apps/details?id=com.food.coffeeboom&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Coffee BOOM on Google Play" data-i18n-aria="googlePlay"><img src="/assets/google-play.png" alt="Get it on Google Play" width="144" height="55" loading="lazy"></a>
       </div>
     </section>
   </main>
-  <footer class="container"><div class="footer-brand"><img src="/assets/coffee-boom-logo.avif" alt="" width="43" height="43" loading="lazy"><div><strong>Coffee BOOM</strong><span data-i18n="footer">Made for moments in Astana.</span></div></div><a class="footer-link" href="https://coffeeboom.kz" target="_blank" rel="noopener noreferrer">coffeeboom.kz<svg aria-hidden="true"><use href="#icon-arrow"/></svg></a></footer>
+  <footer class="container"><span>© Coffee BOOM · <span data-i18n="astana">Astana</span></span><a class="footer-link" href="https://coffeeboom.kz" target="_blank" rel="noopener noreferrer">coffeeboom.kz<svg aria-hidden="true"><use href="#icon-arrow"/></svg></a></footer>
   <div class="robot-dock">
-    <button class="robot-button" id="voiceAssistant" type="button" aria-label="Hear the review invitation" data-i18n-aria="robotLabel" aria-controls="robotBubble" aria-expanded="false">
+    <button class="robot-button" id="voiceAssistant" type="button" aria-label="Listen to the review invitation" aria-pressed="false">
       <svg class="robot-art" viewBox="0 0 56 56" fill="none" aria-hidden="true">
         <path d="M27 13V7" stroke="#a9572b" stroke-width="2"/><circle cx="27" cy="6" r="3" fill="#dfb47a" stroke="#a9572b" stroke-width="1.5"/>
         <path d="M17 39v5c0 4 20 4 20 0v-5" fill="#dfb47a" stroke="#845832" stroke-width="1.5"/><path d="m20 47-1 4m15-4 1 4" stroke="#845832" stroke-width="3" stroke-linecap="round"/>
@@ -311,147 +193,113 @@
         <circle cx="27" cy="42" r="1.8" fill="#a9572b"/>
       </svg>
     </button>
-    <aside class="robot-bubble" id="robotBubble" aria-labelledby="bubble-title" aria-hidden="true" inert>
-      <button class="bubble-close" id="bubbleClose" type="button" aria-label="Close message" data-i18n-aria="close"><svg aria-hidden="true"><use href="#icon-close"/></svg></button>
-      <span class="bubble-kicker" data-i18n="robotKicker">Your little coffee companion</span>
-      <strong class="bubble-title" id="bubble-title" data-i18n="robotHello">Hello, coffee friend!</strong>
-      <p class="bubble-message" id="robotMessage" data-i18n="robotMessage">Please leave a review on Google or 2GIS. We'd love to hear about your visit!</p>
-      <div class="bubble-links"><a href="https://search.google.com/local/writereview?placeid=ChIJ8ZStTQCFRUIR97Iq4DYwmrI" target="_blank" rel="noopener noreferrer"><img src="/assets/google.png" alt="" width="18" height="18">Google Maps</a><a href="https://2gis.kz/astana/search/Coffee%20BOOM/firm/70000001072135261/tab/reviews/addreview?m=71.415126%2C51.091563%2F16" target="_blank" rel="noopener noreferrer"><img src="/assets/2gis.png" alt="" width="18" height="18">2GIS</a></div>
-      <div class="voice-controls"><span class="voice-status" id="voiceStatus" role="status" aria-live="polite"></span><button class="voice-toggle" id="voiceToggle" type="button" aria-label="Mute voice" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M11 4 6 8H3v8h3l5 4V4Z" stroke-linejoin="round"/><path class="sound-wave" d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" stroke-linecap="round"/></svg></button></div>
-    </aside>
   </div>
+  <span class="sr-only" id="voiceStatus" role="status" aria-live="polite"></span>
   <script>
     'use strict';
     const translations = {
       en: {
-        skip:'Skip to reviews', language:'Language', officialWebsite:'Coffee BOOM official website', brandLocation:'Astana · coffee & good company', location:'Your coffee corner in Astana', headline:'A little coffee.', headlineAccent:'A little joy.', heroDescription:'The first sip. The familiar faces. The moments that make your day. Thank you for sharing them with us.', heroCta:'How was your visit?', heroAlt:'Fresh coffee being poured into a cup', madeWithCare:'A moment, made with care.', explore:'Explore Coffee BOOM', findUs:'Find us', website:'Our website', stayConnected:'Stay connected', reviewEyebrow:'A good cup. An honest review.', reviewTitle:'How was your Coffee BOOM?', reviewDescription:'Tell us about your visit. Your feedback helps us make the next cup, and the next visit, even better.', googleDescription:'Share your experience on Google', gisDescription:'Share your experience on 2GIS', leaveReview:'Leave a review', reviewNote:'Every experience matters. Thank you for sharing yours.', socialEyebrow:'More than a coffee break', socialTitle:'A little closer, every day.', socialDescription:'Coffee moments, new favorites, and a little behind the scenes. Find us where you like to scroll.', appEyebrow:'Take a little BOOM with you', appTitle:'Your next coffee is a tap away.', appStore:'Coffee BOOM on the App Store', googlePlay:'Coffee BOOM on Google Play', footer:'Made for moments in Astana.', robotLabel:'Hear the review invitation', robotKicker:'Your little coffee companion', robotHello:'Hello, coffee friend!', robotMessage:"Please leave a review on Google or 2GIS. We'd love to hear about your visit!", close:'Close message', speaking:'Speaking… tap the robot to stop', voiceReady:'Tap the robot to listen', voiceUnavailable:'Your review invitation is here to read', muted:'Voice muted', mute:'Mute voice', unmute:'Unmute voice', speech:'Hello! Welcome to Coffee Boom Astana. Please leave a review on Google or two GIS. We would love to hear about your visit. Thank you!'
+        skip:'Skip to reviews', officialWebsite:'Coffee BOOM official website', astana:'Astana', reviews:'Reviews', language:'Language', eyebrow:'Thank you for visiting', reviewTitle:'Leave a review', reviewDescription:'Choose Google or 2GIS and tell us about your Coffee BOOM experience.', googleAction:'Write a Google review', gisAction:'Write a 2GIS review', reviewNote:'Every experience matters. Thank you for sharing yours.', explore:'Explore Coffee BOOM', findUs:'Find us', website:'Our website', socialTitle:'Stay in touch', appTitle:'Get the Coffee BOOM app', appStore:'Coffee BOOM on the App Store', googlePlay:'Coffee BOOM on Google Play', robotPlay:'Listen to the review invitation', robotStop:'Stop the spoken invitation', speaking:'Speaking the review invitation.', blocked:'Your browser requires a tap to play the invitation. Use the robot to listen.', unavailable:'Spoken audio is unavailable. You can leave a review using Google or 2GIS.', speech:'Welcome to Coffee Boom Astana. Please leave a review on Google or two GIS. Thank you for sharing your experience!'
       },
       ru: {
-        skip:'Перейти к отзывам', language:'Язык', officialWebsite:'Официальный сайт Coffee BOOM', brandLocation:'Астана · кофе и хорошая компания', location:'Ваш кофейный уголок в Астане', headline:'Немного кофе.', headlineAccent:'Немного счастья.', heroDescription:'Первый глоток. Знакомые лица. Моменты, которые делают день лучше. Спасибо, что проводите их с нами.', heroCta:'Как прошёл ваш визит?', heroAlt:'Свежий кофе наливают в чашку', madeWithCare:'Момент, созданный с заботой.', explore:'Откройте Coffee BOOM', findUs:'Как нас найти', website:'Наш сайт', stayConnected:'Мы в соцсетях', reviewEyebrow:'Хороший кофе. Честный отзыв.', reviewTitle:'Каким был ваш Coffee BOOM?', reviewDescription:'Расскажите о вашем визите. Ваши отзывы помогают нам делать каждую чашку и каждую встречу ещё лучше.', googleDescription:'Поделитесь впечатлениями в Google', gisDescription:'Поделитесь впечатлениями в 2ГИС', leaveReview:'Оставить отзыв', reviewNote:'Каждое мнение важно. Спасибо, что делитесь своим.', socialEyebrow:'Больше, чем перерыв на кофе', socialTitle:'Становимся ближе каждый день.', socialDescription:'Кофейные моменты, новые любимые вкусы и немного закулисья. Встречаемся в ваших любимых соцсетях.', appEyebrow:'Возьмите немного BOOM с собой', appTitle:'Любимый кофе — в одном касании.', appStore:'Coffee BOOM в App Store', googlePlay:'Coffee BOOM в Google Play', footer:'Для тёплых моментов в Астане.', robotLabel:'Послушать приглашение оставить отзыв', robotKicker:'Ваш маленький кофейный помощник', robotHello:'Привет, любитель кофе!', robotMessage:'Пожалуйста, оставьте отзыв в Google или 2ГИС. Нам будет приятно узнать о вашем визите!', close:'Закрыть сообщение', speaking:'Говорю… нажмите на робота, чтобы остановить', voiceReady:'Нажмите на робота, чтобы послушать', voiceUnavailable:'Приглашение можно прочитать здесь', muted:'Звук выключен', mute:'Выключить звук', unmute:'Включить звук', speech:'Здравствуйте! Добро пожаловать в Кофе Бум Астана. Пожалуйста, оставьте отзыв в Гугл или два ГИС. Расскажите, как прошёл ваш визит. Спасибо!'
+        skip:'Перейти к отзывам', officialWebsite:'Официальный сайт Coffee BOOM', astana:'Астана', reviews:'Отзывы', language:'Язык', eyebrow:'Спасибо за ваш визит', reviewTitle:'Оставьте отзыв', reviewDescription:'Выберите Google или 2ГИС и поделитесь впечатлениями о Coffee BOOM.', googleAction:'Оставить отзыв в Google', gisAction:'Оставить отзыв в 2ГИС', reviewNote:'Каждое мнение важно. Спасибо за ваш отзыв.', explore:'Откройте Coffee BOOM', findUs:'Как нас найти', website:'Наш сайт', socialTitle:'Будем на связи', appTitle:'Скачайте приложение Coffee BOOM', appStore:'Coffee BOOM в App Store', googlePlay:'Coffee BOOM в Google Play', robotPlay:'Послушать приглашение оставить отзыв', robotStop:'Остановить голосовое приглашение', speaking:'Звучит приглашение оставить отзыв.', blocked:'Браузер требует нажатие для воспроизведения. Нажмите на робота, чтобы послушать.', unavailable:'Озвучивание недоступно. Вы можете оставить отзыв в Google или 2ГИС.', speech:'Здравствуйте! Добро пожаловать в Кофе Бум Астана. Пожалуйста, оставьте отзыв в Гугл или два ГИС. Спасибо, что делитесь впечатлениями!'
       }
     };
     const robot = document.getElementById('voiceAssistant');
-    const bubble = document.getElementById('robotBubble');
     const voiceStatus = document.getElementById('voiceStatus');
-    const voiceToggle = document.getElementById('voiceToggle');
+    const synth = 'speechSynthesis' in window ? window.speechSynthesis : null;
     const locales = {en:'en-US',ru:'ru-RU'};
     let currentLanguage = 'en';
-    let muted = false;
-    let speechStarted = false;
-    let speechState = 'voiceReady';
-    let speechTimeout;
-    let automaticAttempted = false;
-    let greetingReady = false;
     let activeUtterance = null;
-    const synth = 'speechSynthesis' in window ? window.speechSynthesis : null;
-    function updateVoiceUI() {
-      voiceStatus.textContent = translations[currentLanguage][muted ? 'muted' : speechState];
-      voiceToggle.setAttribute('aria-pressed',String(muted));
-      voiceToggle.setAttribute('aria-label',translations[currentLanguage][muted ? 'unmute' : 'mute']);
-      robot.classList.toggle('speaking',speechStarted);
-    }
-    function showBubble(open) {
-      bubble.classList.toggle('open',open);
-      bubble.setAttribute('aria-hidden',String(!open));
-      bubble.inert = !open;
-      robot.setAttribute('aria-expanded',String(open));
+    let startTimeout;
+    let automaticRequested = false;
+    let greetingReady = false;
+    let voiceState = 'idle';
+    function setVoiceState(state,error = '') {
+      voiceState = state;
+      robot.dataset.voiceState = state;
+      robot.dataset.voiceError = error;
+      const speaking = state === 'speaking';
+      robot.classList.toggle('speaking',speaking);
+      robot.setAttribute('aria-pressed',String(speaking));
+      robot.setAttribute('aria-label',translations[currentLanguage][speaking ? 'robotStop' : 'robotPlay']);
+      voiceStatus.textContent = translations[currentLanguage][state] || '';
     }
     function stopSpeech() {
       activeUtterance = null;
-      clearTimeout(speechTimeout);
+      clearTimeout(startTimeout);
       if (synth) synth.cancel();
-      speechStarted = false;
-      speechState = 'voiceReady';
-      updateVoiceUI();
+      setVoiceState('idle');
     }
     function applyLanguage(language) {
       if (!translations[language]) return;
       stopSpeech();
       currentLanguage = language;
       document.documentElement.lang = language;
+      document.title = language === 'ru' ? 'Coffee BOOM · Оставьте отзыв' : 'Coffee BOOM · Leave a review';
       document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = translations[language][el.dataset.i18n]; });
       document.querySelectorAll('[data-i18n-aria]').forEach(el => { el.setAttribute('aria-label',translations[language][el.dataset.i18nAria]); });
-      document.querySelectorAll('[data-i18n-alt]').forEach(el => { el.alt = translations[language][el.dataset.i18nAlt]; });
       document.querySelectorAll('[data-language]').forEach(el => { el.setAttribute('aria-pressed',String(el.dataset.language === language)); });
-      updateVoiceUI();
+      setVoiceState('idle');
     }
-    function localizedVoice() {
-      if (!synth) return null;
-      const voices = synth.getVoices().filter(voice => voice.lang.toLowerCase().split(/[-_]/)[0] === currentLanguage);
-      return voices.find(voice => voice.localService) || voices[0] || null;
-    }
-    function speakInvitation() {
-      if (muted || document.hidden) return;
+    function speakInvitation(automatic = false) {
+      if (document.hidden) return;
       stopSpeech();
-      if (!synth || typeof SpeechSynthesisUtterance === 'undefined') {
-        speechState = 'voiceUnavailable'; updateVoiceUI(); return;
-      }
-      const voice = localizedVoice();
+      robot.dataset.voiceTrigger = automatic ? 'automatic' : 'manual';
+      if (!synth || typeof SpeechSynthesisUtterance === 'undefined') { setVoiceState('unavailable','synthesis-unavailable'); return; }
       const message = new SpeechSynthesisUtterance(translations[currentLanguage].speech);
-      activeUtterance = message;
       message.lang = locales[currentLanguage];
-      // The engine can resolve message.lang even before getVoices() is populated.
-      if (voice) message.voice = voice;
       message.rate = .94;
       message.pitch = 1.04;
-      message.onstart = () => {
-        if (activeUtterance !== message) return;
-        clearTimeout(speechTimeout);
-        speechStarted = true; speechState = 'speaking'; updateVoiceUI();
-      };
-      const finished = () => {
-        if (activeUtterance !== message) return;
-        clearTimeout(speechTimeout);
-        activeUtterance = null; speechStarted = false; speechState = 'voiceReady'; updateVoiceUI();
-      };
-      message.onend = finished;
+      // Setting lang also lets the engine resolve voices that are still loading.
+      const voices = synth.getVoices().filter(voice => voice.lang.toLowerCase().split(/[-_]/)[0] === currentLanguage);
+      const voice = voices.find(voice => voice.localService) || voices[0];
+      if (voice) message.voice = voice;
+      activeUtterance = message;
+      setVoiceState('pending');
+      message.onstart = () => { if (activeUtterance === message) { clearTimeout(startTimeout); setVoiceState('speaking'); } };
+      message.onend = () => { if (activeUtterance === message) { activeUtterance = null; clearTimeout(startTimeout); setVoiceState('idle'); } };
       message.onerror = event => {
         if (activeUtterance !== message) return;
-        finished();
-        if (['language-unavailable','voice-unavailable','synthesis-unavailable'].includes(event.error)) {
-          speechState = 'voiceUnavailable'; updateVoiceUI();
-        }
+        activeUtterance = null;
+        clearTimeout(startTimeout);
+        setVoiceState(event.error === 'not-allowed' ? 'blocked' : 'unavailable',event.error);
       };
-      // Browsers may require a user gesture. The translated bubble always appears.
-      try { synth.speak(message); } catch (_) { finished(); }
-      speechTimeout = setTimeout(() => { if (activeUtterance === message && !speechStarted) stopSpeech(); },2500);
+      try {
+        if (synth.paused) synth.resume();
+        synth.speak(message);
+      } catch (_) {
+        activeUtterance = null;
+        setVoiceState('unavailable','synthesis-failed');
+      }
+      startTimeout = setTimeout(() => {
+        if (activeUtterance === message && voiceState === 'pending') {
+          activeUtterance = null;
+          synth.cancel();
+          setVoiceState('unavailable','start-timeout');
+        }
+      },8000);
     }
-    function attemptAutomaticSpeech() {
-      if (!greetingReady || automaticAttempted || muted || document.hidden) return;
-      automaticAttempted = true;
-      speakInvitation();
+    function requestAutomaticSpeech() {
+      if (!greetingReady || automaticRequested || document.hidden) return;
+      automaticRequested = true;
+      speakInvitation(true);
     }
-    // Each visit follows the browser's primary language, never an old saved choice.
+    // A new visit always follows the browser's primary language.
     const browserLanguage = (navigator.language || (navigator.languages || [])[0] || 'en').toLowerCase();
     applyLanguage(browserLanguage.startsWith('ru') ? 'ru' : 'en');
     document.querySelectorAll('[data-language]').forEach(button => {
-      button.addEventListener('click',() => { automaticAttempted = true; applyLanguage(button.dataset.language); showBubble(true); speakInvitation(); });
+      button.addEventListener('click',() => { automaticRequested = true; applyLanguage(button.dataset.language); speakInvitation(); });
     });
     robot.addEventListener('click',() => {
-      showBubble(true);
-      if (speechStarted || activeUtterance) { stopSpeech(); return; }
-      if (muted) muted = false;
-      speakInvitation();
+      automaticRequested = true;
+      if (activeUtterance) stopSpeech(); else speakInvitation();
     });
-    voiceToggle.addEventListener('click',() => {
-      muted = !muted;
-      if (muted) stopSpeech(); else speakInvitation();
-      updateVoiceUI();
-    });
-    document.getElementById('bubbleClose').addEventListener('click',() => { showBubble(false); stopSpeech(); robot.focus({preventScroll:true}); });
-    document.addEventListener('keydown',event => {
-      if (event.key === 'Escape' && bubble.classList.contains('open')) { const focusInside = bubble.contains(document.activeElement); showBubble(false); stopSpeech(); if (focusInside) robot.focus({preventScroll:true}); }
-    });
-    document.addEventListener('visibilitychange',() => { if (document.hidden) stopSpeech(); else attemptAutomaticSpeech(); });
-    if (synth) synth.addEventListener('voiceschanged',attemptAutomaticSpeech);
-    // DOM readiness: slow images and fonts cannot delay the invitation.
-    setTimeout(() => { greetingReady = true; showBubble(true); attemptAutomaticSpeech(); },250);
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if ('IntersectionObserver' in window && !reducedMotion.matches) {
-      document.body.classList.add('motion-ready');
-      const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); },{threshold:.08});
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    }
+    document.addEventListener('visibilitychange',() => { if (document.hidden) stopSpeech(); else requestAutomaticSpeech(); });
+    window.addEventListener('pagehide',stopSpeech);
+    if (synth) synth.addEventListener('voiceschanged',requestAutomaticSpeech);
+    // Runs without a click. Browser audio policies can still reject playback.
+    setTimeout(() => { greetingReady = true; requestAutomaticSpeech(); },250);
   </script>
 </body>
 </html>
