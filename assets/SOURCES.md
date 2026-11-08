@@ -20,3 +20,4 @@ The robot and interface icons are original inline SVG; brand marks are unmodifie
 - Instagram: https://www.instagram.com/viva_astana_megasilkway/
 - Phone / WhatsApp: +7 705 651 38 37.
 - Viva reuses the Google, 2GIS and Instagram assets listed above. No Coffee BOOM app or social links are used on the Viva page.
+- `whatsapp.svg`: unmodified official icon linked by https://www.whatsapp.com/ on 2026-11-08. Source: https://static.whatsapp.net/rsrc.php/y1/r/FJbTMJqMap7.svg
