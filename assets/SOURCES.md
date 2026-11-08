@@ -11,3 +11,12 @@
 - `google-play.png`: Google's official download badge. https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png
 
 The robot and interface icons are original inline SVG; brand marks are unmodified assets.
+
+## Viva page
+
+- `viva-mark.svg`: original typographic V monogram for this page; not an official salon logo.
+- Google and 2GIS review URLs were supplied by the repository owner for Viva, MEGA Silk Way.
+- Branch, address, phone and Instagram were verified against the Viva 2GIS listing on 2026-11-08: https://2gis.kz/astana/firm/70000001028118832
+- Instagram: https://www.instagram.com/viva_astana_megasilkway/
+- Phone / WhatsApp: +7 705 651 38 37.
+- Viva reuses the Google, 2GIS and Instagram assets listed above. No Coffee BOOM app or social links are used on the Viva page.

@@ -7,6 +7,14 @@
     {
       "source": "/coffee-boom/",
       "destination": "/boom.html"
+    },
+    {
+      "source": "/viva",
+      "destination": "/viva.html"
+    },
+    {
+      "source": "/viva/",
+      "destination": "/viva.html"
     }
   ]
 }
